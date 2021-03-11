@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #222222;
+    font-family:'Courier New', Courier, monospace
+}
+
+header, main, #displayErrors {
+    width: 800px;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+header {
+    text-align: center;
+    color: #FF0000;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+main {
+    overflow: auto;
+}
+
+section {
+    float: left;
+}
+
+section:first-child {
+    margin-right: 10px;
+}
+
+.artSection {
+    width: 288px;
+    height: 482px;
+    border: 1px solid #444444;
+    border-radius: 5px;
+    padding: 5px;
+    overflow: auto;
+}
+
+.artSection div {
+    float: left;
+    padding: 10px;
+}
+
+section label {
+    display: block;
+}
+
+button {
+    height: 30px;
+    background-color: #FFFFFF;
+    color: #FF0000;
+    border: 1px solid #FF0000;
+    border-radius: 15px;
+    padding: 5px 10px;
+    outline: none;
+}
+
+section button:hover {
+    cursor: pointer;
+    color: #EEEEEE;
+    background-color: #FF0000;
+}
+
+#drawingGrid {
+    overflow: auto;
+    width: 482px;
+    border: 1px solid #444444;
+    border-radius: 5px;
+}
+
+.gridInterior, .paletteGrid {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #EEEEEE;
+    float: left;
+}
+
+.gridInterior:hover, .paletteGrid:hover {
+    border: 1px solid #FF0000;
+    cursor: pointer;
+}
+
+.restoreFromPastedControls {
+    border: 1px solid #444444;
+    border-radius: 5px;
+}
+
+#displayErrors {
+    background-color: #FF0000;
+    color: #FFFFFF;
+    display: none;
+    font-weight: 700;
+}

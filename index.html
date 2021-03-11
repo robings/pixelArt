@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pixel Art</title>
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" type="text/css" href="normalize.css" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script defer src="script.js"></script>
+        <link rel="icon" type="image/jpg" href="images/confused.jpg" />
+    </head>
+    <body>
+        <header>
+            <h1>Pixel Art</h1>
+        </header>
+        <main>
+            <section id="drawingGrid">
+            </section>
+            <section class="artSection">
+                <div>
+                    <label for="foregroundColour">Foreground <input type="color" id="foregroundColour" name="foregroundColour" value="#00FF00" /></label>
+                    <label for="foregroundColour">Background <input type="color" id="backgroundColour" name="backgroundColour" value="#FFFFFF" /></label>
+                </div>
+                <div>
+                    <button id="swapForeAndBackgroundColour">&lt;-&gt;</button>
+                </div>
+                <div id="palette">
+                </div>
+                <div>
+                    <button id="clearDrawing">Clear to BG colour</button>
+                </div>
+                <div>
+                    <button id="getDrawing">Download Drawing JSON</button>
+                </div>
+                <div class="restoreFromPastedControls">
+                    <div>Paste data from a downloaded JSON here:</div>
+                    <input type="text" id="pastedData" />
+                    <div>
+                        <button id="restoreDrawingFromPaste">Restore Pasted Drawing</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <div id="displayErrors">
+            <div id="errorText"></div>
+        </footer>
+    </body>
+</html>
