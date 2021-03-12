@@ -47,6 +47,30 @@ document.getElementById('restoreDrawingFromPaste').addEventListener('click', () 
     }
 });
 
+document.getElementById('randomArt').addEventListener('click', () => {
+    let r, g, b;
+
+    let interiorGridElements = document.querySelectorAll('.gridInterior');
+    interiorGridElements.forEach (interiorGridElement => {
+        let changeColour = generateRandomNumber (1, 3)
+        let totallyRandom = document.getElementById('totallyRandom').checked;
+
+        if (changeColour === 2 && !totallyRandom) {
+            interiorGridElement.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        } else {
+            r = generateRandomNumber(0, 255);
+            g = generateRandomNumber(0, 255);
+            b = generateRandomNumber(0, 255);
+    
+            interiorGridElement.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        }
+    })
+});
+
+function generateRandomNumber(minNum, maxNum) {
+    return Math.floor(Math.random() * (maxNum - minNum + 1) + minNum);
+}
+
 function createDrawingGrid() {
     let htmlBuild;
 

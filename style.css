@@ -91,9 +91,10 @@ section button:hover {
     cursor: pointer;
 }
 
-.restoreFromPastedControls {
+.seperatePanel {
     border: 1px solid #444444;
     border-radius: 5px;
+    margin-bottom: 5px;
 }
 
 #displayErrors {
