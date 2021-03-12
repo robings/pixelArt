@@ -48,19 +48,21 @@ document.getElementById('restoreDrawingFromPaste').addEventListener('click', () 
 });
 
 function createDrawingGrid() {
-    let htmlBuild = '';
+    let htmlBuild;
 
     for (let i=1; i<25; i++) {
         for (let j=1; j<25; j++) {
-            htmlBuild+=`<div class="gridInterior" data-x="${j}" data-y="${i}"></div>`
+            htmlBuild = document.createElement('div');
+            htmlBuild.className = 'gridInterior';
+            htmlBuild.setAttribute('data-x', `${j}`);
+            htmlBuild.setAttribute('data-y', `${i}`);
+            document.getElementById('drawingGrid').appendChild(htmlBuild);
         }
     }
-
-    document.getElementById('drawingGrid').innerHTML=htmlBuild;
 }
 
 function createPaletteGrid() {
-    let htmlBuild = '';
+    let htmlBuild;
     const PALETTECOLOURS = [
         '#FFFFFF',
         '#000000',
@@ -73,10 +75,10 @@ function createPaletteGrid() {
     ]
 
     for (let i=0; i<PALETTECOLOURS.length; i++) {
-        htmlBuild+=`<div class="paletteGrid"></div>`
+        htmlBuild = document.createElement('div');
+        htmlBuild.className = 'paletteGrid';
+        document.getElementById('palette').appendChild(htmlBuild);
     }
-
-    document.getElementById('palette').innerHTML=htmlBuild
 
     let paletteGridElements = document.querySelectorAll('.paletteGrid');
 
