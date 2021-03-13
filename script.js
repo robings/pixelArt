@@ -2,8 +2,10 @@ createDrawingGrid();
 createPaletteGrid();
 addEventListenersToGridElements();
 addEventListenersToPaletteGrid();
+displayInterval();
 
 var timeout;
+var slideshowInterval;
 
 document.getElementById('swapForeAndBackgroundColour').addEventListener('click', () => {
     let foregroundColour = document.getElementById('foregroundColour').value;
@@ -48,24 +50,26 @@ document.getElementById('restoreDrawingFromPaste').addEventListener('click', () 
 });
 
 document.getElementById('randomArt').addEventListener('click', () => {
-    let r, g, b;
+    if (slideshowInterval) {
+        clearInterval(slideshowInterval);
+    }
 
-    let interiorGridElements = document.querySelectorAll('.gridInterior');
-    interiorGridElements.forEach (interiorGridElement => {
-        let changeColour = generateRandomNumber (1, 3)
-        let totallyRandom = document.getElementById('totallyRandom').checked;
-
-        if (changeColour === 2 && !totallyRandom) {
-            interiorGridElement.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-        } else {
-            r = generateRandomNumber(0, 255);
-            g = generateRandomNumber(0, 255);
-            b = generateRandomNumber(0, 255);
-    
-            interiorGridElement.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-        }
-    })
+    if (document.getElementById('slideshow').checked){
+        let interval = document.getElementById('slideshowInterval').value;
+        slideshowInterval = setInterval(makeRandomArt, interval)
+    } else {
+        makeRandomArt();
+    }
 });
+
+document.getElementById('slideshowInterval').addEventListener('input', () => {
+    displayInterval();
+})
+
+function displayInterval() {
+    var delay = document.getElementById('slideshowInterval').value;
+    document.getElementById('intervalDisplay').textContent = `${delay} ms`;
+}
 
 function generateRandomNumber(minNum, maxNum) {
     return Math.floor(Math.random() * (maxNum - minNum + 1) + minNum);
@@ -198,6 +202,26 @@ function downloadJson(jsonToDownload) {
     document.body.appendChild(tempElement);
     tempElement.click();
     document.body.removeChild(tempElement);
+}
+
+function makeRandomArt() {
+    let r, g, b;
+
+    let interiorGridElements = document.querySelectorAll('.gridInterior');
+    interiorGridElements.forEach (interiorGridElement => {
+        let changeColour = generateRandomNumber (1, 3)
+        let totallyRandom = document.getElementById('totallyRandom').checked;
+
+        if (changeColour === 2 && !totallyRandom) {
+            interiorGridElement.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        } else {
+            r = generateRandomNumber(0, 255);
+            g = generateRandomNumber(0, 255);
+            b = generateRandomNumber(0, 255);
+    
+            interiorGridElement.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        }
+    })
 }
 
 function displayError(errorText) {

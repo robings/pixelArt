@@ -17,30 +17,38 @@
             <section id="drawingGrid">
             </section>
             <section class="artSection">
-                <div>
+                <div class="seperatePanel">
+                    <div>
                     <label for="foregroundColour">Foreground <input type="color" id="foregroundColour" name="foregroundColour" value="#00FF00" /></label>
                     <label for="foregroundColour">Background <input type="color" id="backgroundColour" name="backgroundColour" value="#FFFFFF" /></label>
-                </div>
-                <div>
-                    <button id="swapForeAndBackgroundColour">&lt;-&gt;</button>
-                </div>
-                <div id="palette">
+                    </div>
+                    <div>
+                        <button id="swapForeAndBackgroundColour">&lt;-&gt;</button>
+                    </div>
+                    <div id="palette">
+                    </div>
                 </div>
                 <div>
                     <button id="clearDrawing">Clear to BG colour</button>
                 </div>
-                <div>
-                    <button id="getDrawing">Download Drawing JSON</button>
-                </div>
                 <div class="seperatePanel">
-                    <div>Paste data from a downloaded JSON here:</div>
+                    <div>Paste contents of downloaded JSON here:</div>
                     <input type="text" id="pastedData" />
                     <div>
                         <button id="restoreDrawingFromPaste">Restore Pasted Drawing</button>
                     </div>
+                    <div>
+                        <button id="getDrawing">Download Drawing JSON</button>
+                    </div>
                 </div>
                 <div class="seperatePanel">
                     <label for="totallyRandom"><input name="totallyRandom" id="totallyRandom" type="checkbox" /> Totally random</label>
+                    <div class="seperatePanel">
+                        <label for="slideshow"><input name="slideshow" id="slideshow" type="checkbox" /> Random Art Slideshow</label>
+                        <label for="slideshowInterval">Delay <input name="slideshowInterval" id="slideshowInterval" type="range" min="100"
+                                max="10000" value="2000" /></label>
+                        <div id="intervalDisplay"></div>
+                    </div>
                     <div>
                         <button id="randomArt">Random Art</button>
                     </div>
