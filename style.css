@@ -19,6 +19,8 @@ header, main, #displayErrors {
 header {
     text-align: center;
     color: #FF0000;
+    background-image: url('favicon.png');
+    background-repeat: repeat-y;
 }
 
 h1 {
