@@ -189,7 +189,11 @@ function addEventListenersToPaletteGrid() {
     paletteGridElements.forEach (paletteGridElement => {
         paletteGridElement.addEventListener('click', (e)=> {
             let paletteColour = convertRgbToHex(window.getComputedStyle(e.target).backgroundColor);
-            document.getElementById('foregroundColour').value = paletteColour;
+            if (e.altKey) {
+                document.getElementById('backgroundColour').value = paletteColour;
+            } else {
+                document.getElementById('foregroundColour').value = paletteColour;
+            }
         })
     })
 }
