@@ -7,6 +7,22 @@ displayInterval();
 var timeout;
 var slideshowInterval;
 
+document.getElementById('drawingGrid').addEventListener('mousedown', (e) => {
+    if (e.target.className === 'gridInterior') {
+        let foregroundColour = convertHexToRgb(document.getElementById('foregroundColour').value);
+        e.target.style.backgroundColor=foregroundColour;
+    }
+    addHoverEventListenersToGridElements();
+});
+
+document.getElementById('drawingGrid').addEventListener('mouseup', () => {
+    removeHoverEventListenersFromGridElements();
+});
+
+document.querySelector('html').addEventListener('mouseup', () => {
+    removeHoverEventListenersFromGridElements();
+});
+
 document.getElementById('swapForeAndBackgroundColour').addEventListener('click', () => {
     let foregroundColour = document.getElementById('foregroundColour').value;
     let backgroundColour = document.getElementById('backgroundColour').value;
@@ -120,14 +136,27 @@ function addEventListenersToGridElements() {
     interiorGridElements.forEach (interiorGridElement => {
         interiorGridElement.addEventListener('click', (e)=>{
             let foregroundColour = convertHexToRgb(document.getElementById('foregroundColour').value);
-            let backgroundColour = convertHexToRgb(document.getElementById('backgroundColour').value);
-            let currentColour = window.getComputedStyle(e.target).backgroundColor;
-            if(currentColour === foregroundColour) {
-                e.target.style.backgroundColor=backgroundColour;               
-            } else {
-                e.target.style.backgroundColor=foregroundColour;
-            }
+            e.target.style.backgroundColor=foregroundColour;
         })
+    })
+}
+
+function addHoverEventListenersToGridElements() {
+    let interiorGridElements = document.querySelectorAll('.gridInterior');
+    interiorGridElements.forEach (interiorGridElement => {
+        interiorGridElement.addEventListener('mouseover', hoverEventListener);
+    })
+}
+
+function hoverEventListener(e) {
+    let foregroundColour = convertHexToRgb(document.getElementById('foregroundColour').value);
+    e.target.style.backgroundColor=foregroundColour;
+}
+
+function removeHoverEventListenersFromGridElements() {
+    let interiorGridElements = document.querySelectorAll('.gridInterior');
+    interiorGridElements.forEach (interiorGridElement => {
+        interiorGridElement.removeEventListener('mouseover', hoverEventListener);
     })
 }
 
