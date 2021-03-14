@@ -12,6 +12,9 @@
     <body>
         <header>
             <h1>Pixel Art</h1>
+            <div>
+                <button id="showHelp">?</button>
+            </div>
         </header>
         <main>
             <section id="drawingGrid">
@@ -57,6 +60,29 @@
         </main>
         <div id="displayErrors">
             <div id="errorText"></div>
-        </footer>
+        </div>
+        <div id="displayHelp">
+            <h2>Help</h1>
+                <p>Choose foreground and background colour using the colour pickers. To quickly choose a foreground colour,
+                    click on one of the colours in the palette. To quickly choose a background colour, <span>Option</span>-click (Mac OS) or
+                    <span>ALT</span>-click (Windows) one of the colours in the palette.</p>
+                <p>To change the colour of a single cell, click the cell in the grid you want to change. It will change to the
+                    selected foreground colour. Hold down <span>Option</span> (Mac OS) or <span>ALT</span> (Windows) whilst
+                    clicking to change the cell to the selected background colour.</p>
+                <p>Holding down the left mouse button and moving the mouse around the grid will change the cells you roll over
+                    to the selected foreground colour. Hold
+                    down <span>Option</span> (Mac OS) or <span>ALT</span> (Windows) whilst holding down the left mouse button to
+                    change the cells you roll over to the selected background colour.</p>
+                <p>Click <span>Random Art</span> to have a random piece of art created where each cell in the grid is filled
+                    with a random colour. Select <span>Totally random</span> for every cell to be random. Otherwise there is a
+                    random chance that a cell next to another cell will be made the same colour. Select <span>Random Art
+                        Slideshow</span> and select a delay in milliseconds to have the random art change each time the delay
+                    has elapsed. To stop a random art slideshow, untick <span>Random Art Slideshow</span>, and click
+                    <span>Random Art</span> again.
+                </p>
+                <p>To save a drawing, you can download a JSON file representing the art by clicking <span>Download Drawing
+                        JSON</span>. To restore the drawing, open the downloaded file in a text editor, select all, copy and
+                    paste it into the text input. Then click <span>Restore Pasted Drawing</span>.</p>
+        </div>
     </body>
 </html>
