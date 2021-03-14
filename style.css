@@ -7,7 +7,7 @@ body {
     font-family:'Courier New', Courier, monospace
 }
 
-header, main, #displayErrors {
+header, main, #displayErrors, #displayHelp {
     width: 800px;
     margin: 0 auto;
     background-color: rgb(255, 255, 255);
@@ -18,13 +18,28 @@ header, main, #displayErrors {
 
 header {
     text-align: center;
+    overflow: auto;
+}
+
+h1, h2 {
     color: #FF0000;
+    text-transform: uppercase;
     background-image: url('favicon.png');
     background-repeat: repeat-y;
 }
 
 h1 {
-    text-transform: uppercase;
+    float: left;
+    margin: 0 0 20px 0;
+    border-top: 1px solid #444444;
+}
+
+h2 {
+    border-bottom: 1px solid #444444;
+}
+
+header div {
+    float: right;
 }
 
 main {
@@ -67,7 +82,7 @@ button {
     outline: none;
 }
 
-section button:hover {
+button:hover {
     cursor: pointer;
     color: #EEEEEE;
     background-color: #FF0000;
@@ -105,5 +120,13 @@ section button:hover {
     background-color: #FF0000;
     color: #FFFFFF;
     display: none;
+    font-weight: 700;
+}
+
+#displayHelp {
+    display: none;
+}
+
+#displayHelp span {
     font-weight: 700;
 }

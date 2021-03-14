@@ -7,6 +7,15 @@ displayInterval();
 var timeout;
 var slideshowInterval;
 
+document.getElementById('showHelp').addEventListener('click', () => {
+    let style = window.getComputedStyle(document.getElementById('displayHelp')).display;
+    if (style === 'none') {
+        document.getElementById('displayHelp').style.display = 'block';
+    } else {
+        document.getElementById('displayHelp').style.display = 'none';
+    }
+});
+
 document.getElementById('drawingGrid').addEventListener('mousedown', (e) => {
     if (e.target.className === 'gridInterior' && e.button === 0) {
         let foregroundColour = convertHexToRgb(document.getElementById('foregroundColour').value);
