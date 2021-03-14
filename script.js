@@ -10,7 +10,12 @@ var slideshowInterval;
 document.getElementById('drawingGrid').addEventListener('mousedown', (e) => {
     if (e.target.className === 'gridInterior') {
         let foregroundColour = convertHexToRgb(document.getElementById('foregroundColour').value);
-        e.target.style.backgroundColor=foregroundColour;
+        let backgroundColour = document.getElementById('backgroundColour').value;
+        if (e.altKey) {
+            e.target.style.backgroundColor=backgroundColour;
+        } else {
+            e.target.style.backgroundColor=foregroundColour;
+        }
     }
     addHoverEventListenersToGridElements();
 });
@@ -136,8 +141,13 @@ function addEventListenersToGridElements() {
     interiorGridElements.forEach (interiorGridElement => {
         interiorGridElement.addEventListener('click', (e)=>{
             let foregroundColour = convertHexToRgb(document.getElementById('foregroundColour').value);
-            e.target.style.backgroundColor=foregroundColour;
-        })
+            let backgroundColour = document.getElementById('backgroundColour').value;
+            if (e.altKey) {
+                e.target.style.backgroundColor=backgroundColour;
+            } else {
+                e.target.style.backgroundColor=foregroundColour;
+            }        
+        });
     })
 }
 
@@ -150,7 +160,12 @@ function addHoverEventListenersToGridElements() {
 
 function hoverEventListener(e) {
     let foregroundColour = convertHexToRgb(document.getElementById('foregroundColour').value);
-    e.target.style.backgroundColor=foregroundColour;
+    let backgroundColour = convertHexToRgb(document.getElementById('backgroundColour').value);
+    if (e.altKey) {
+        e.target.style.backgroundColor=backgroundColour;
+    } else {
+        e.target.style.backgroundColor=foregroundColour;
+    }
 }
 
 function removeHoverEventListenersFromGridElements() {
