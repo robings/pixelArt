@@ -8,7 +8,7 @@ var timeout;
 var slideshowInterval;
 
 document.getElementById('drawingGrid').addEventListener('mousedown', (e) => {
-    if (e.target.className === 'gridInterior') {
+    if (e.target.className === 'gridInterior' && e.button === 0) {
         let foregroundColour = convertHexToRgb(document.getElementById('foregroundColour').value);
         let backgroundColour = document.getElementById('backgroundColour').value;
         if (e.altKey) {
@@ -16,8 +16,8 @@ document.getElementById('drawingGrid').addEventListener('mousedown', (e) => {
         } else {
             e.target.style.backgroundColor=foregroundColour;
         }
+        addHoverEventListenersToGridElements();
     }
-    addHoverEventListenersToGridElements();
 });
 
 document.getElementById('drawingGrid').addEventListener('mouseup', () => {
@@ -148,7 +148,7 @@ function addEventListenersToGridElements() {
                 e.target.style.backgroundColor=foregroundColour;
             }        
         });
-    })
+    });
 }
 
 function addHoverEventListenersToGridElements() {
